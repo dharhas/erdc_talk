@@ -12,95 +12,190 @@
 </head>
 
 <body>
-    <!-- Wrap the entire slide show in a div using the "reveal" class. -->
-    <div class="reveal">
-        <!-- Wrap all slides in a single "slides" class -->
-        <div class="slides">
-
-            <!-- ALL SLIDES GO HERE -->
-            <!-- Each section element contains an individual slide -->
-            <section data-background-transition="slide" data-background="media/recent_conditions_bw.png" style="background: rgba(0,129,195,.6); color: white" id="presentable" class="bookend">
-              <h3> Water, Data and Models </h3>
-              <h4> Dharhas Pothina </h4>
-              <small> February 10th, 2014</small>
-            </section>
-            
-            <section>
-              <section>
-                Education 
-              </section>
-              <section data-background-transition="slide" data-background="media/map_bw.png">
-              </section>
-              <section data-background-transition="slide" data-background="media/iitm_bw.png" style="background: rgba(0,129,195,.6); color: white" id="presentable" class="bookend">
-                <h3> B.Tech Aerospace Engineering </h3>
-                <small>Development of an axisymmetric Navier-Stokes solver for simulations of an open ended plasma torch</small>
-              </section>
-              <section data-background-transition="slide" data-background="media/tower_bw.png" style="background: rgba(0,129,195,.6); color: white" id="presentable" class="bookend">
-                <h3> M.S. Aerospace Engineering </h3>
-                <small> A Coupled Discontinuous/Continuous Finite Element Method for Hydrodynamic Simulations using the Shallow Water Equations </small>
-                <h3> Ph.D. Civil Engineering </h3>
-                <small>A multimodel approach to modeling bay circulation in shallow bay-ship channel systems</small>
-              </section>
-            </section>
-            <section>
-              Hydrodynamic Model Development
-            </section>
-            <section>
-              Hydrodynamic Model Application
-            </section>
-            <section>
-              Data Collection
-            </section>
-            <section>
-              Geospatial Analysis
-            </section>
-            <section>
-              <section>
-                Informatics
-              </section>
-              <section>
-                <img src="media/standards.png">
-              </section>
-              <section>
-                <img src="media/toothbrushes.jpg">
-              </section>
-              <section>
-                <img src="media/lake_page.png">
-              </section>
-            </section>
-            <section>
-              <section>
-                ulmo demo
-                <pre><code>from ulmo.usgs import nwis </code></pre>
-              </section>
-              <section>
-                <pre><code>
-from ulmo.ncdc import ghcn_daily
-import pandas as pd
-
-# download snow data
-austin_data = ghcn_daily.get_data('USW00013958', elements='SNOW', as_dataframe=True) # Austin Camp Mabry
-vicksburg_data = ghcn_daily.get_data('USC00168923', elements='SNOW', as_dataframe=True) #TALLULAH, LA
-
-# combine data and drop dates that are not in both datasets
-data = pd.DataFrame({'austin': austin_data['SNOW']['value'], 
-                     'vicksburg': vicksburg_data['SNOW']['value']})
-data = data.dropna()
-
-# plot
-data.resample('10A', how='sum').plot(kind='bar')
-                  </code></pre>
-              </section>
-            </section>
-        </div>
+  <!-- Wrap the entire slide show in a div using the "reveal" class. -->
+  <div class="reveal">
+    <!-- Wrap all slides in a single "slides" class -->
+    <div class="slides">
+      <!-- ALL SLIDES GO HERE -->
+      <!-- Each section element contains an individual slide -->
+      <section data-background-transition="slide" data-background="media/recent_conditions_bw.png" style="background: rgba(0,129,195,.6); color: white" id="presentable" class="bookend">
+        <h3> Water: Data, Analysis and Modeling </h3>
+        <h4> Dharhas Pothina </h4>
+        <small> February 10th, 2014</small>
+      </section>
+      
+      <section>
+        <section>
+          Education 
+        </section>
+        <section data-background-transition="slide" data-background="media/map_bw.png">
+        </section>
+        <section data-background-transition="slide" data-background="media/iitm_bw.png" style="background: rgba(0,129,195,.6); color: white" id="presentable" class="bookend">
+          <h3> B.Tech Aerospace Engineering </h3>
+          <small>Development of an axisymmetric Navier-Stokes solver for simulations of an open ended plasma torch</small>
+        </section>
+        <section data-background-transition="slide" data-background="media/tower_bw.png" style="background: rgba(0,129,195,.6); color: white" id="presentable" class="bookend">
+          <h3> M.S. Aerospace Engineering </h3>
+          <small> A Coupled Discontinuous/Continuous Finite Element Method for Hydrodynamic Simulations using the Shallow Water Equations </small>
+          <h3> Ph.D. Civil Engineering </h3>
+          <small>A multimodel approach to modeling bay circulation in shallow bay-ship channel systems</small>
+        </section>
+      </section>
+      <section>
+        <section>
+          Algorithm Development  
+        </section>
+        <section>
+          <img src="media/galvestonbay.png">
+          <ul>
+            <li>Strong winds</li>
+            <li>Relatively weak river inflows</li>
+            <li>Microtidal (tidal amplitudes &lt2m)</li>
+            <li>Shallow with dredged navigational channels</li>
+          </ul>
+        </section>
+        <section>
+          <img src="media/decoupled-circulation.png">
+        </section>
+        <section>
+          <img src="media/coupled-model1.png">
+          <img src="media/coupled-model2.png">
+        </section>
+        <section>
+          <table>
+            <td><img src="media/test-case.png"></td>
+            <td><img src="media/vlayers.png"></td>
+          </table>
+        </section>
+        <section>
+          <img src="media/coupled-results.png">
+          <ul>
+          
+          When compared to the reference solution with equivalent resolution, LACM-SELFE was able to simulate the following with much greater accuracy than 2D or low resolution 3D models :
+ 
+ Velocity-depth profile in the ship channel
+ Volume Fluxes through the ship channel
+ 
+Surface Circulation was found to depend primarily on vertical resolution of 3D shallow bay model and choice of turbulence closure scheme
+            <li>Strong winds</li>
+            <li>Relatively weak river inflows</li>
+            <li>Microtidal (tidal amplitudes &lt2m)</li>
+            <li>Shallow with dredged navigational channels</li>
+          </ul>
+        </section>
+      </section>
+      <section>
+        <section>
+          Estuarine Modeling  
+        </section>
+        <section>
+          <img src="media/kl_overview.png">
+        </section>
+        <section>
+          <img src="media/kl_model_dev.png">
+        </section>
+         <section>
+          <img src="media/kl_salinity.png" width=400px>
+        </section>
+        <section>
+          <img src="media/kl_siphon_locs.png">
+        </section>
+        <section>
+          <img src="media/kl_siphon_results.png">
+        </section>
+      </section>
+      <section>
+        <section>
+          Geospatial Analysis
+        </section>
+        <section>
+          <table>
+            <td><img src="media/kl_interp.png"></td>
+            <td><img src="media/leon_interp.png"></td>
+          </table>
+        </section>
+        <section>
+          <table>
+            <td><img src="media/survey.png"></td>
+            <td><img src="media/bad_lake_interp.png"></td>
+          </table>
+        </section>
+        <section>
+          <img src="media/aeidw_polygons.png">
+          <h3>AEIDW - Anisotropic Eliptical Inverse Distance Weighting</h3>
+        </section>
+        <section>
+          <img src="media/aeidw.png">
+        </section>
+        <section>
+          <img src="media/applications.png">
+        </section>
+      </section>
+      <section>
+        <section>
+          Image and Signal Processing
+        </section>
+        <section>
+          <img src="media/rating_curve.png">
+        </section>
+        <section>
+          <h2>This Works, I promise</h2>
+          <p>(foiled by Austin <i>"it might be cold"</i> day)</p>
+        </section>
+        <section>
+          <img src="media/depthpic.png">
+        </section>
+        <section>
+          <img src="media/sediment_profile.png">
+          <img src="media/depthpic_r2.png">
+        </section>
+        <section>
+          <img src="media/autopic.png">          
+        </section>
+      </section>
+      <section>
+        <section>
+          Informatics
+          <p class="fragment roll-in">(a.k.a. data munging)</p>
+        </section>
+        <section>
+          <img src="media/standards.png">
+        </section>
+        <section>
+          <img src="media/toothbrushes.jpg">
+          <p class="fragment roll-in"> <quote>Standards are like toothbrushes, everybody agrees you should have one, but no one wants to use yours. — Joe Croser</quote></p>
+        </section>
+        <section>
+          <img src="media/lake_page.png">
+        </section>
+      </section>
+      <section>
+        <section>
+          <h3>ulmo demo</h3>
+        </section>
+      </section>
     </div>
-    <script src="lib/js/head.min.js"></script>
-    <script src="js/reveal.min.js"></script>
+  </div>
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.min.js"></script>
 
-    <script>
-        // Required, even if empty.
-        Reveal.initialize({
-        });
-    </script>
+  <script>
+      // Required, even if empty.
+		  Reveal.initialize({
+			controls: true,
+			progress: true,
+			// history: true,
+			center: true,
+
+			// Optional libraries used to extend on reveal.js
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+			]
+		});
+  </script>
 </body>
 </html>
